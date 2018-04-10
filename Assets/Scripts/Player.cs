@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 		if (finished)
 			return ;
-		Vector3 motion = new Vector3(0, Input.GetAxis("Mouse X"), 0);
+		Vector3 motion = new Vector3(0, Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 		motion.Normalize();
 		motion.x *= speed.x;
 		motion.y *= speed.y;
