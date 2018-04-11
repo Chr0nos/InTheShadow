@@ -138,10 +138,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1397059, g: 0.7864096, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 113.822205
-  m_SpotAngle: 117.28882
+  m_SpotAngle: 62.68704
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -178,6 +178,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832940438 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
+    type: 2}
+  m_PrefabInternal: {fileID: 1819636901}
+  m_Script: {fileID: 11500000, guid: c0227c78d659241b1bdf70d22d0e2dbc, type: 3}
 --- !u!1 &872105008
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 872105012}
   - component: {fileID: 872105011}
+  - component: {fileID: 872105013}
   - component: {fileID: 872105010}
   - component: {fileID: 872105009}
   m_Layer: 0
@@ -259,6 +266,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 32.9, z: 0}
+--- !u!114 &872105013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 872105008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ca1ff0c3d484460b55a7c06a9d4fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 832940438}
 --- !u!1 &1068664955
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +359,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068664955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4, y: 0, z: 0}
+  m_LocalPosition: {x: 12.5, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1981292134}
@@ -388,6 +408,16 @@ Prefab:
     - target: {fileID: 4917754216716576, guid: da56d1212140c4adc9bf26d832683243, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
+        type: 2}
+      propertyPath: finishRotation.y
+      value: -13.392
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
+        type: 2}
+      propertyPath: speed.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da56d1212140c4adc9bf26d832683243, type: 2}

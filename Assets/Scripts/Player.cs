@@ -11,18 +11,37 @@ public class Player : MonoBehaviour {
 	void Update () {
 		if (finished)
 			return ;
-		Vector3 motion = new Vector3(0, Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-		motion.Normalize();
-		motion.x *= speed.x;
-		motion.y *= speed.y;
-		motion.z *= speed.z;
-		transform.Rotate(motion);
+		if (Input.GetKey(KeyCode.LeftControl))
+			Translatage();
+		else
+			Rotationage();
 		if (isFinished())
 			finished = true;
 	}
 
-	bool isFinished()
+	void Translatage()
 	{
+		Vector3 motion = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
+		transform.position += motion;
+	}
+
+	void Rotationage()
+	{
+		Vector3 localSpeed = transform.rotation * speed;
+		Vector3 motion = new Vector3(0, Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+		motion = transform.rotation * motion;
+		motion.Normalize();
+		motion.x *= localSpeed.x;
+		motion.y *= localSpeed.y;
+		motion.z *= localSpeed.z;
+		transform.Rotate(motion);
+	}
+
+	// returns true if the object is in the good position to have the good shadow.
+	public bool isFinished()
+	{
+		if (finished)
+			return (true);
 		Vector3		rot = transform.rotation.eulerAngles;
 
 		if (!inRange(rot.x, finishRotation.x))
