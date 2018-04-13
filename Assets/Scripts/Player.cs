@@ -4,28 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 	public Vector3		finishEuler;
-	public float		tolerance = 3;
+	public float		tolerance = 20;
 	public bool			lock_x = false;
 	public bool			lock_y = true;
 	public bool			lock_z = true;
-	private bool		finished = false;
-
-	[Space]
-	public float		smoothTime = 0.1f;
-	public float		maxSpeed = 7;
-
 	public bool			constraintFoldout = false;
 
-	Vector3				rotationVelocity;
-
-	private void Start()
-	{
-		Cursor.lockState = CursorLockMode.Locked;
-	}
+	private bool		finished = false;
 
 	void Update () {
-		if (finished)
-			return ;
+	//	if (finished)
+	//		return ;
 		Debug.Log(transform.eulerAngles);
 		if (Input.GetKey(KeyCode.LeftControl))
 			Translatage();
@@ -56,7 +45,6 @@ public class Player : MonoBehaviour {
 	{
 		if (finished)
 			return (true);
-		// Vector3		rot = transform.forward;
 		Vector3			rot = transform.eulerAngles;
 
 		if (!inRange(rot.x, finishEuler.x))

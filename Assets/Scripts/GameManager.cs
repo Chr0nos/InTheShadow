@@ -6,6 +6,11 @@ public class GameManager : MonoBehaviour
 {
 	public Player[]		players;
 
+	private void Start()
+	{
+		Cursor.lockState = CursorLockMode.Locked;
+	}
+
 	void Update () {
 		if (isGameFinished())
 		{
