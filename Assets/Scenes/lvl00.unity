@@ -272,7 +272,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 872105008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27ca1ff0c3d484460b55a7c06a9d4fa5, type: 3}
   m_Name: 
@@ -412,12 +412,27 @@ Prefab:
     - target: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
         type: 2}
       propertyPath: finishRotation.y
-      value: -13.392
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
         type: 2}
       propertyPath: speed.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
+        type: 2}
+      propertyPath: finishRotation.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
+        type: 2}
+      propertyPath: finishRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114204645789952952, guid: da56d1212140c4adc9bf26d832683243,
+        type: 2}
+      propertyPath: tolerance
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da56d1212140c4adc9bf26d832683243, type: 2}

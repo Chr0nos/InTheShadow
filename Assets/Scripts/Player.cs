@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
 			Rotationage();
 		if (isFinished())
 			finished = true;
+		Debug.DrawLine(transform.position, transform.position + finishRotation * 10, Color.red);
+		Debug.DrawLine(transform.position, transform.position + transform.forward * 10, Color.green);
 	}
 
 	void Translatage()
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour {
 	{
 		if (finished)
 			return (true);
-		Vector3		rot = transform.rotation.eulerAngles;
+		Vector3		rot = transform.forward;
 
 		if (!inRange(rot.x, finishRotation.x))
 			return (false);
