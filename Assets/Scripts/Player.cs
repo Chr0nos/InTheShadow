@@ -34,7 +34,12 @@ public class Player : MonoBehaviour {
 
 	void Rotationage()
 	{
-		if (!lock_x)
+		if (Input.GetMouseButton(0))
+		{
+			if (!lock_z)
+				transform.Rotate(Vector3.forward, Input.GetAxis("Mouse X"));
+		}
+		else if (!lock_x)
 			transform.Rotate(Vector3.up, Input.GetAxis("Mouse X"));
 		if (!lock_y)
 			transform.Rotate(Vector3.right, Input.GetAxis("Mouse Y"));
