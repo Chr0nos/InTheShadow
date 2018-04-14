@@ -40,17 +40,22 @@ public class Menu : MonoBehaviour {
 	{
 		foreach  (slevel lvl in levels)
 		{
-			// level is unavaialble
-			if ((PlayerPrefs.GetInt(lvl.scene, 0) == 0) && (!lvl.forceAvailable))
+			Text		txt;
+
+			if (lvl.stdButton)
 			{
-				lvl.stdButton.interactable = false;
+				// level is unavaialble
+				if ((PlayerPrefs.GetInt(lvl.scene, 0) == 0) && (!lvl.forceAvailable))
+				{
+					lvl.stdButton.interactable = false;
+				}
+				else
+				{
+					lvl.stdButton.interactable = true;
+				}
+				txt = lvl.stdButton.GetComponentInChildren<Text>();
+				txt.text = lvl.title;
 			}
-			else
-			{
-				lvl.stdButton.interactable = true;
-			}
-			Text txt = lvl.stdButton.GetComponentInChildren<Text>();
-			txt.text = lvl.title;
 			txt = lvl.testButton.GetComponentInChildren<Text>();
 			txt.text = lvl.title;
 		}
