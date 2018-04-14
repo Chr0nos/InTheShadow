@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 			if (!p.isFinished())
 				return (false);
 		}
+		PlayerPrefs.SetInt(nextLevelName, 1);
+		PlayerPrefs.Save();
 		return (true);
 	}
 }

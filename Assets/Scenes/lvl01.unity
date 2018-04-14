@@ -482,7 +482,6 @@ MonoBehaviour:
   lock_x: 0
   lock_y: 0
   lock_z: 0
-  constraintFoldout: 1
   lockTranslation: 0
 --- !u!1 &837192328
 GameObject:
