@@ -3,46 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	public Vector3		finishEuler;
+	public Vector3[]	finishEuler;
 	public float		tolerance = 20;
 	public bool			lock_x = false;
 	public bool			lock_y = true;
 	public bool			lock_z = true;
-	public bool			constraintFoldout = false;
+	public bool			lockTranslation = true;
 
 	private bool		finished = false;
+	private Rigidbody	rb;
+
+	private void Start()
+	{
+		rb = GetComponent<Rigidbody>();
+	}
 
 	void Update () {
-	//	if (finished)
-	//		return ;
+		if (finished)
+			return ;
 		Debug.Log(transform.eulerAngles);
-		if (Input.GetKey(KeyCode.LeftControl))
+		if ((Input.GetKey(KeyCode.LeftControl)) && (!lockTranslation))
 			Translatage();
 		else
-			Rotationage();
+			Rotationage((Input.GetKey(KeyCode.LeftShift) ? Space.World : Space.Self));
+
 		if (isFinished())
 			finished = true;
-		Debug.DrawLine(transform.position, Quaternion.Euler(finishEuler) * Vector3.forward * 10, Color.red);
+		foreach (Vector3 euler in finishEuler)
+			Debug.DrawLine(transform.position, Quaternion.Euler(euler) * Vector3.forward * 10, Color.red);
 		Debug.DrawLine(transform.position, transform.position + transform.forward * 10, Color.green);
 	}
 
 	void Translatage()
 	{
 		Vector3 motion = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
-		transform.position += motion;
+
+		rb.velocity += motion;
+		// transform.position += motion;
+		//lastPosition = transform.position;
 	}
 
-	void Rotationage()
+	void Rotationage(Space space)
 	{
+		Vector3		motion = Vector3.zero;
+
 		if (Input.GetMouseButton(0))
 		{
 			if (!lock_z)
-				transform.Rotate(Vector3.forward, Input.GetAxis("Mouse X"));
+				motion.z = Input.GetAxis("Mouse X");
 		}
 		else if (!lock_x)
-			transform.Rotate(Vector3.up, Input.GetAxis("Mouse X"));
+			motion.x = Input.GetAxis("Mouse X");
 		if (!lock_y)
-			transform.Rotate(Vector3.right, Input.GetAxis("Mouse Y"));
+			motion.y = Input.GetAxis("Mouse Y");
+		transform.Rotate(motion, space);
 	}
 
 	// returns true if the object is in the good position to have the good shadow.
@@ -52,14 +66,18 @@ public class Player : MonoBehaviour {
 			return (true);
 		Vector3			rot = transform.eulerAngles;
 
-		if (!inRange(rot.x, finishEuler.x))
-			return (false);
-		if (!inRange(rot.y, finishEuler.y))
-			return (false);
-		if (!inRange(rot.z, finishEuler.z))
-			return (false);
-		Debug.Log("finish reached");
-		return (true);
+		foreach (Vector3 euler in finishEuler)
+		{
+			if (!inRange(rot.x, euler.x))
+				continue ;
+			if (!inRange(rot.y, euler.y))
+				continue ;
+			if (!inRange(rot.z, euler.z))
+				continue ;
+			Debug.Log("Finish reached");
+			return (true);
+		}
+		return (false);
 	}
 
 	bool inRange(float x, float finish)

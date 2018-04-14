@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
 {
 	public Player[]		players;
 	public string		nextLevelName;
-	public GameObject	panel;
+	public GameObject	panel = null;
 
 	private void Start()
 	{
-		panel.SetActive(false);
+		if (panel)
+			panel.SetActive(false);
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 
@@ -21,7 +22,8 @@ public class GameManager : MonoBehaviour
 		{
 			Debug.Log("Game finished.");
 			Cursor.lockState = CursorLockMode.None;
-			panel.SetActive(true);
+			if (panel)
+				panel.SetActive(true);
 		}
 	}
 
