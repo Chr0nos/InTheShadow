@@ -8,11 +8,11 @@ using UnityEngine.Events;
 [System.Serializable]
 public struct slevel
 {
-	public string	title;
-	public string	scene;
-	public Button	testButton;
-	public Button	stdButton;
-	public bool		forceAvailable;
+	public string		title;
+	public string		scene;
+	public Button		testButton;
+	public Button		stdButton;
+	public bool			forceAvailable;
 }
 
 public class Menu : MonoBehaviour {
