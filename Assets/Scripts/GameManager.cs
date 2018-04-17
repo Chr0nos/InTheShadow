@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 
-	void Update () {
+	void Update ()
+	{
 		if (isGameFinished())
 		{
 		//	Debug.Log("Game finished.");

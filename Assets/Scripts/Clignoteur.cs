@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class Clignoteur : MonoBehaviour {
 	public float		interval;
+	public float		coef;
 	private Light		lamp;
 	private float		now;
 	private float		lampIntensity;
+	private float		pos;
 
 	void Start() {
+		pos = 0;
 		now = 0;
 		lamp = GetComponent<Light>();
 		lampIntensity = lamp.intensity;
 	}
 
-	void Update () {
-		now += Time.deltaTime;
-		if (now >= interval)
-		{
-			lamp.intensity = (lamp.intensity == 0) ? lampIntensity : 0;
-			now = 0;
-		}
+	void Update ()
+	{
+		SinonusoLight();
+	}
+
+	void SinonusoLight()
+	{
+		float		si;
+
+		pos += coef;
+		si = Mathf.Sin(pos);
+		lamp.intensity = si * lampIntensity;
 	}
 }

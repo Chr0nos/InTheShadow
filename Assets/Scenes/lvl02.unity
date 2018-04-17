@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 0.6
+  coef: 0.05
 --- !u!108 &465244925
 Light:
   m_ObjectHideFlags: 0
