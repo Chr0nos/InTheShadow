@@ -24,16 +24,8 @@ public class Menu : MonoBehaviour {
 
 	private void Start()
 	{
-		SetupButtons();
+		UpdateButtons();
 		MainMenu();
-	}
-
-	public void SetupButtons()
-	{
-		foreach (slevel lvl in levels)
-		{
-			// lvl.testButton.onClick.AddListener
-		}
 	}
 
 	public void UpdateButtons()
@@ -47,15 +39,20 @@ public class Menu : MonoBehaviour {
 				// level is unavaialble
 				if ((PlayerPrefs.GetInt(lvl.scene, 0) == 0) && (!lvl.forceAvailable))
 				{
+					Debug.Log("disable " + lvl.scene);
 					lvl.stdButton.interactable = false;
+					lvl.stdButton.enabled = false;
 				}
 				else
 				{
 					lvl.stdButton.interactable = true;
+					lvl.stdButton.enabled = true;
 				}
 				txt = lvl.stdButton.GetComponentInChildren<Text>();
 				txt.text = lvl.title;
 			}
+			else
+				Debug.Log("warning: no std button for " + lvl.scene);
 			txt = lvl.testButton.GetComponentInChildren<Text>();
 			txt.text = lvl.title;
 		}
@@ -101,10 +98,22 @@ public class Menu : MonoBehaviour {
 		SceneManager.LoadScene("lvl01");
 	}
 
+	public void Lvl02()
+	{
+		SceneManager.LoadScene("lvl02");
+	}
+
 	public void MainMenu()
 	{
 		testingPanel.SetActive(false);
 		stdPanel.SetActive(false);
 		mainPanel.SetActive(true);
+	}
+
+	public void ResetSave()
+	{
+		PlayerPrefs.SetInt("lvl00", 0);
+		PlayerPrefs.SetInt("lvl01", 0);
+		PlayerPrefs.SetInt("lvl02", 0);
 	}
 }

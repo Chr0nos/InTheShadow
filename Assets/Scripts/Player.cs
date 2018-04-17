@@ -9,29 +9,58 @@ public class Player : MonoBehaviour {
 	public bool			lock_y = true;
 	public bool			lock_z = true;
 	public bool			lockTranslation = true;
+	public Collider		finishTrigger = null;
 
-	private bool		finished = false;
+	private bool		inFinishSpace = false;
+	private bool		selected = false;
 	private Rigidbody	rb;
 
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		if (finishTrigger == null)
+			inFinishSpace = true;
 	}
 
 	void Update () {
-		if (finished)
+		ShowAxisDebug();
+		if (!selected)
 			return ;
-		Debug.Log(transform.eulerAngles);
+		//Debug.Log(transform.eulerAngles);
 		if ((Input.GetKey(KeyCode.LeftControl)) && (!lockTranslation))
 			Translatage();
 		else
 			Rotationage((Input.GetKey(KeyCode.LeftShift) ? Space.World : Space.Self));
+		isFinished();
 
-		if (isFinished())
-			finished = true;
+	}
+
+	private void ShowAxisDebug()
+	{
+		if ((Input.GetKeyDown(KeyCode.P)) && (selected))
+			Debug.Log(transform.eulerAngles);
 		foreach (Vector3 euler in finishEuler)
 			Debug.DrawLine(transform.position, Quaternion.Euler(euler) * Vector3.forward * 10, Color.red);
 		Debug.DrawLine(transform.position, transform.position + transform.forward * 10, Color.green);
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (!other.Equals(finishTrigger))
+			return ;
+		inFinishSpace = true;
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (!other.Equals(finishTrigger))
+			return ;
+		inFinishSpace = false;
+	}
+
+	public void SetActivate(bool state)
+	{
+		selected = state;
 	}
 
 	void Translatage()
@@ -39,8 +68,7 @@ public class Player : MonoBehaviour {
 		Vector3 motion = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
 
 		rb.velocity += motion;
-		// transform.position += motion;
-		//lastPosition = transform.position;
+
 	}
 
 	void Rotationage(Space space)
@@ -62,8 +90,8 @@ public class Player : MonoBehaviour {
 	// returns true if the object is in the good position to have the good shadow.
 	public bool isFinished()
 	{
-		if (finished)
-			return (true);
+		if  (!inFinishSpace)
+			return (false);
 		Vector3			rot = transform.eulerAngles;
 
 		foreach (Vector3 euler in finishEuler)

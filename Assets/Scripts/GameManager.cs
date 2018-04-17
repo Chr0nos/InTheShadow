@@ -14,16 +14,35 @@ public class GameManager : MonoBehaviour
 	{
 		if (panel)
 			panel.SetActive(false);
+		ActivatePlayer(0);
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	void Update () {
 		if (isGameFinished())
 		{
-			Debug.Log("Game finished.");
+		//	Debug.Log("Game finished.");
 			Cursor.lockState = CursorLockMode.None;
 			if (panel)
 				panel.SetActive(true);
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+			ActivatePlayer(0);
+		else if (Input.GetKeyDown(KeyCode.Alpha2))
+			ActivatePlayer(1);
+		else if (Input.GetKeyDown(KeyCode.Alpha3))
+			ActivatePlayer(-1);
+	}
+
+	void ActivatePlayer(int id)
+	{
+		int		cid;
+
+		cid = 0;
+		foreach (Player p in players)
+		{
+			p.SetActivate(cid == id);
+			cid++;
 		}
 	}
 
