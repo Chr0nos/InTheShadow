@@ -57,4 +57,9 @@ public class GameManager : MonoBehaviour
 		PlayerPrefs.Save();
 		return (true);
 	}
+
+	public void NextLevel()
+	{
+		SceneManager.LoadScene(nextLevelName);
+	}
 }

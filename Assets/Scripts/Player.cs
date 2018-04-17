@@ -78,13 +78,16 @@ public class Player : MonoBehaviour {
 		if (Input.GetMouseButton(0))
 		{
 			if (!lock_z)
-				motion.z = Input.GetAxis("Mouse X");
+				motion.z = -Input.GetAxis("Mouse X");
 		}
 		else if (!lock_x)
-			motion.x = Input.GetAxis("Mouse X");
+			motion.y = Input.GetAxis("Mouse X");
 		if (!lock_y)
-			motion.y = Input.GetAxis("Mouse Y");
-		transform.Rotate(motion, space);
+			motion.x = Input.GetAxis("Mouse Y");
+		if (space == Space.Self)
+			motion = transform.rotation * motion;
+		rb.AddTorque(motion);
+		//transform.Rotate(motion, space);
 	}
 
 	// returns true if the object is in the good position to have the good shadow.

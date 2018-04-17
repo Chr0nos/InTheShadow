@@ -313,7 +313,7 @@ MonoBehaviour:
   tolerance: 20
   lock_x: 0
   lock_y: 0
-  lock_z: 1
+  lock_z: 0
   lockTranslation: 0
   finishTrigger: {fileID: 0}
 --- !u!23 &560186735
@@ -798,6 +798,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114308142856396516, guid: 796b01bcf637d42a7b116f353529071c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224723919531346098, guid: 796b01bcf637d42a7b116f353529071c,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -887,6 +892,31 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308142856396516, guid: 796b01bcf637d42a7b116f353529071c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308142856396516, guid: 796b01bcf637d42a7b116f353529071c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308142856396516, guid: 796b01bcf637d42a7b116f353529071c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 704692544}
+    - target: {fileID: 114308142856396516, guid: 796b01bcf637d42a7b116f353529071c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308142856396516, guid: 796b01bcf637d42a7b116f353529071c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 796b01bcf637d42a7b116f353529071c, type: 2}
@@ -1182,11 +1212,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishEuler:
-  - {x: 180, y: 0, z: 0}
+  - {x: 358.4, y: 183.3, z: 358.2}
   tolerance: 20
   lock_x: 0
   lock_y: 0
-  lock_z: 1
+  lock_z: 0
   lockTranslation: 0
   finishTrigger: {fileID: 0}
 --- !u!23 &1797005015
