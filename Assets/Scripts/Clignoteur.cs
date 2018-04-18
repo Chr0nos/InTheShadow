@@ -6,13 +6,11 @@ public class Clignoteur : MonoBehaviour {
 	public float		interval;
 	public float		coef;
 	private Light		lamp;
-	private float		now;
 	private float		lampIntensity;
 	private float		pos;
 
 	void Start() {
 		pos = 0;
-		now = 0;
 		lamp = GetComponent<Light>();
 		lampIntensity = lamp.intensity;
 	}

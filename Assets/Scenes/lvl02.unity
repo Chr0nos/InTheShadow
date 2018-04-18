@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishEuler:
-  - {x: 358.4, y: 183.3, z: 358.2}
+  - {x: 358.4, y: 175, z: 181}
   tolerance: 20
   lock_x: 0
   lock_y: 0

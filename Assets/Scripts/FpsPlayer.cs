@@ -21,7 +21,9 @@ public class FpsPlayer : MonoBehaviour {
 		GameObject		obj = RayLaunch();
 		MenuItem		item = RayCheck(obj);
 
-		HighlightItem(item);
+		if (Input.GetKeyDown(KeyCode.M))
+			SceneManager.LoadScene("Menu");
+		HighlightItem();
 		if (Input.GetKeyDown(KeyCode.E))
 			RayClick(item, obj);
 		Move();
@@ -89,14 +91,9 @@ public class FpsPlayer : MonoBehaviour {
 		}
 	}
 
-	void HighlightItem(MenuItem item)
+	void HighlightItem()
 	{
-		Color		color;
-
 		foreach (MenuItem citem in items)
-		{
-			color = (!citem.IsAvailable()) ? Color.black : Color.white;
-			citem.GetComponent<MeshRenderer>().material.color = color;
-		}
+			citem.mrender.material.color = (!citem.IsAvailable()) ? Color.black : Color.white;
 	}
 }
