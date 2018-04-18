@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6d21263609d1b4712be1a9e52173fd7b
-timeCreated: 1524001340
+timeCreated: 1524060027
 licenseType: Free
 SubstanceImporter:
   externalObjects: {}
@@ -105,7 +105,7 @@ SubstanceImporter:
         stringvalue: 
     - name: pattern
       value:
-        scalar[0]: 4
+        scalar[0]: 2
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
