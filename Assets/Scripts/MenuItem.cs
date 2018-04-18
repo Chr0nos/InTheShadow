@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuItem : MonoBehaviour {
 	public string			levelName;
@@ -9,6 +10,7 @@ public class MenuItem : MonoBehaviour {
 	public bool				forceAvailable; 
 	public bool				quit = false;
 	public MeshRenderer		mrender;
+	public TextMesh			title;
 
 	private bool			inCoroutine = false;
 	private Rotationator	rotationator;
@@ -48,6 +50,7 @@ public class MenuItem : MonoBehaviour {
 		float		max = original * 1.5f;
 	
 		inCoroutine = true;
+		title.gameObject.SetActive(true);
 		for (float c = original; c < max && inCoroutine; c += delta)
 		{
 			transform.localScale = new Vector3(c, c, c);
@@ -59,6 +62,7 @@ public class MenuItem : MonoBehaviour {
 	IEnumerator UnSelected()
 	{
 		inCoroutine = true;
+		title.gameObject.SetActive(false);
 		for (float c = transform.localScale.x; c > original && inCoroutine; c -= delta)
 		{
 			transform.localScale = new Vector3(c, c, c);
