@@ -10,9 +10,13 @@ public class MenuItem : MonoBehaviour {
 	public bool				quit = false;
 	private bool			inCoroutine = false;
 	private Rotationator	rotationator;
+	private float			original;
+	float					delta = 0.025f;
+	private bool			selected = false;
 
 	private void Start()
 	{
+		original = transform.localScale.x;
 		rotationator = GetComponent<Rotationator>();
 		rotationator.SetRotate(forceAvailable || IsAvailable());
 	}
@@ -43,7 +47,6 @@ public class MenuItem : MonoBehaviour {
 	// and returns to the original size.
 	IEnumerator Highlight()
 	{
-		float			original = transform.localScale.x;
 		float			max = original * 1.5f;
 		float			min = original * 0.5f;
 		float			delta = 0.025f;
@@ -67,10 +70,38 @@ public class MenuItem : MonoBehaviour {
 		inCoroutine = false;
 	}
 
-	public void ToggleHightlight()
+	IEnumerator Selected()
 	{
-		if (!inCoroutine)
-			StartCoroutine("Highlight");
+		float		max = original * 1.5f;
+	
+		inCoroutine = true;
+		for (float c = original; c < max && inCoroutine; c += delta)
+		{
+			transform.localScale = new Vector3(c, c, c);
+			yield return null;
+		}
+		inCoroutine = false;
+	}
+
+	IEnumerator UnSelected()
+	{
+		inCoroutine = true;
+		for (float c = transform.localScale.x; c > original && inCoroutine; c -= delta)
+		{
+			transform.localScale = new Vector3(c, c, c);
+			yield return null;
+		}
+		inCoroutine = false;
+	}
+
+	public void SetSelectedState(bool state)
+	{
+		inCoroutine = false;
+		if (state)
+			StartCoroutine("Selected");
+		else
+			StartCoroutine("UnSelected");
+		selected = state;
 	}
 
 	public void SetReady(bool state)

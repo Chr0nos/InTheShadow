@@ -24,14 +24,21 @@ public class FpsPlayer : MonoBehaviour {
 		HighlightItem(item);
 		if (Input.GetKeyDown(KeyCode.E))
 			RayClick(item, obj);
-		if ((Input.GetKeyDown(KeyCode.Q)) && (item))
-			item.ToggleHightlight();
 		Move();
 		transform.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
 		transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Mouse X"));
-		if ((!currentItem) && (item))
-			item.ToggleHightlight();
+		ToggleSelectedItem(item);
 		currentItem = item;
+	}
+
+	void ToggleSelectedItem(MenuItem item)
+	{
+		// a new item is selected
+		if ((!currentItem) && (item))
+			item.SetSelectedState(true);
+		// item leaved
+		else if ((currentItem) && (!item))
+			currentItem.SetSelectedState(false);
 	}
 
 	void Move()
@@ -88,9 +95,7 @@ public class FpsPlayer : MonoBehaviour {
 
 		foreach (MenuItem citem in items)
 		{
-			color = (citem == item) ? Color.green : Color.white;
-			if (!citem.IsAvailable())
-				color = Color.black;
+			color = (!citem.IsAvailable()) ? Color.black : Color.white;
 			citem.GetComponent<MeshRenderer>().material.color = color;
 		}
 	}
