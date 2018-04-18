@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishEuler:
-  - {x: -0.822, y: 142.627, z: 0.627}
+  - {x: 2.3, y: 172, z: 0.3}
   tolerance: 20
   lock_x: 0
   lock_y: 0
@@ -366,13 +366,13 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b652084dd7fd64e7781667a5a8ab41d6, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 560186733}
-  m_LocalRotation: {x: 0.0028897151, y: 0.9472611, z: 0.008545133, w: 0.32033607}
+  m_LocalRotation: {x: 0.20990996, y: 0.7245254, z: -0.6075515, w: 0.24876074}
   m_LocalPosition: {x: 0.725, y: 3.269, z: -0.131}
   m_LocalScale: {x: 0.060000066, y: 0.060000006, z: 0.06000007}
   m_Children: []
   m_Father: {fileID: 2046469864}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.822, y: 142.62701, z: 0.62700003}
+  m_LocalEulerAnglesHint: {x: 80, y: 142.62701, z: 0.62700003}
 --- !u!64 &560186738
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -628,8 +628,8 @@ MonoBehaviour:
   players:
   - {fileID: 1797005014}
   - {fileID: 560186734}
-  nextLevelName: 
-  panel: {fileID: 0}
+  nextLevelName: LiveMenu
+  panel: {fileID: 1173592987}
 --- !u!114 &704692544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   players:
   - {fileID: 1797005014}
   - {fileID: 560186734}
-  nextLevelName: Menu
+  nextLevelName: LiveMenu
   panel: {fileID: 924202803}
 --- !u!1 &724312888
 GameObject:
@@ -927,6 +927,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1912060642260692, guid: 796b01bcf637d42a7b116f353529071c,
     type: 2}
   m_PrefabInternal: {fileID: 924202802}
+--- !u!1 &1173592987 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1230468751013142, guid: 796b01bcf637d42a7b116f353529071c,
+    type: 2}
+  m_PrefabInternal: {fileID: 924202802}
 --- !u!1 &1346038567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1041,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436309373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.97, y: 1.89, z: 0.26000106}
+  m_LocalPosition: {x: -4.63, y: 0.75, z: 0.26000106}
   m_LocalScale: {x: 0.13923937, y: 0.18805696, z: 2.7379472}
   m_Children: []
   m_Father: {fileID: 2046469864}
@@ -1214,6 +1219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishEuler:
   - {x: 358.4, y: 175, z: 181}
+  - {x: 6, y: 180, z: 180}
   tolerance: 20
   lock_x: 0
   lock_y: 0
@@ -1413,7 +1419,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2046469863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5199998, y: -3.260001, z: 1.083}
+  m_LocalPosition: {x: 3.855, y: -2.792, z: 1.083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 560186737}

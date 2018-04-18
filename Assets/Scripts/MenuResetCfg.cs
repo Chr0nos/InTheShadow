@@ -17,7 +17,11 @@ public class MenuResetCfg : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt(lvl.levelMap, forcedValue);
 			if (!lvl.forceAvailable)
+			{
 				lvl.SetReady(forcedValue == 1);
+				lvl.SetAvailable(forcedValue == 1);
+			}
+
 		}
 		PlayerPrefs.Save();
 	}

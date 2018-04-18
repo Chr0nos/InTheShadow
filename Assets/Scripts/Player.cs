@@ -23,16 +23,16 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
-		ShowAxisDebug();
 		if (!selected)
 			return ;
-		//Debug.Log(transform.eulerAngles);
+		ShowAxisDebug();
 		if ((Input.GetKey(KeyCode.LeftControl)) && (!lockTranslation))
 			Translatage();
 		else
 			Rotationage((Input.GetKey(KeyCode.LeftShift) ? Space.World : Space.Self));
+		if (Input.GetKeyDown(KeyCode.K))
+			transform.rotation = Quaternion.Euler(finishEuler[0]);
 		isFinished();
-
 	}
 
 	private void ShowAxisDebug()
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour {
 				continue ;
 			if (!inRange(rot.z, euler.z))
 				continue ;
-			Debug.Log("Finish reached");
+		//	Debug.Log("Finish reached");
 			return (true);
 		}
 		return (false);

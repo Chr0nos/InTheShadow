@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class MenuItem : MonoBehaviour {
 	public string			levelName;
 	public string			levelMap;
-	public bool				forceAvailable; 
+	public bool				forceAvailable;
 	public bool				quit = false;
 	public MeshRenderer		mrender;
 	public TextMesh			title;
 
+	private bool			available;
 	private bool			inCoroutine = false;
 	private Rotationator	rotationator;
 	private float			original;
@@ -20,6 +21,7 @@ public class MenuItem : MonoBehaviour {
 	private void Start()
 	{
 		original = transform.localScale.x;
+		available = PlayerPrefs.GetInt(levelMap, 0) == 1;
 		rotationator = GetComponent<Rotationator>();
 		rotationator.SetRotate(forceAvailable || IsAvailable());
 		mrender = GetComponent<MeshRenderer>();
@@ -29,7 +31,14 @@ public class MenuItem : MonoBehaviour {
 	{
 		if (forceAvailable)
 			return (true);
-		return (PlayerPrefs.GetInt(levelMap, 0) == 1);
+		return (available);
+	}
+
+	public void SetAvailable(bool state)
+	{
+		PlayerPrefs.SetInt(levelMap, (state == true) ? 1 : 0);
+		available = state;
+		PlayerPrefs.Save();
 	}
 
 	public void OnClick()
