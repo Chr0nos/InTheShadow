@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour 
 {
-	public Player[]		players;
+	private Player[]	players;
 	public string		nextLevelName;
 	public GameObject	panel = null;
 
 	private void Start()
 	{
+		players = FindObjectsOfType(typeof(Player)) as Player[];
 		if (panel)
 			panel.SetActive(false);
 		ActivatePlayer(0);
@@ -62,5 +63,10 @@ public class GameManager : MonoBehaviour
 	public void NextLevel()
 	{
 		SceneManager.LoadScene(nextLevelName);
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
 	}
 }

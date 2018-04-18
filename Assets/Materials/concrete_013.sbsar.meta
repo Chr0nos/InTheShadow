@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 98ae2fa0aecae4553b7eb781ce7153d9
-timeCreated: 1523649275
+timeCreated: 1524089343
 licenseType: Free
 SubstanceImporter:
   externalObjects: {}
@@ -11,22 +11,212 @@ SubstanceImporter:
     prototypeName: concrete_013
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: 
+    shaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
     renderQueue: -1
     lightmapFlags: 4
-    inputs: []
+    inputs:
+    - name: $outputsize
+      value:
+        scalar[0]: 8
+        scalar[1]: 8
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: $randomseed
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: luminosity
+      value:
+        scalar[0]: 0.5
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: contrast
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: hue_shift
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: saturation
+      value:
+        scalar[0]: 0.5
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: normal_intensity
+      value:
+        scalar[0]: 0.5
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: normal_format
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: ao_spreading
+      value:
+        scalar[0]: 0.5
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: height_range
+      value:
+        scalar[0]: 0.5
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: height_position
+      value:
+        scalar[0]: 0.5
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: Rain
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: concrete_color
+      value:
+        scalar[0]: 0.352895
+        scalar[1]: 0.384298
+        scalar[2]: 0.396002
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: peebles_color_1
+      value:
+        scalar[0]: 0.796002
+        scalar[1]: 0.752895
+        scalar[2]: 0.729397
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: peebles_color_2
+      value:
+        scalar[0]: 0.356893
+        scalar[1]: 0.384298
+        scalar[2]: 0.364706
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: peebles_color_3
+      value:
+        scalar[0]: 0.431403
+        scalar[1]: 0.376501
+        scalar[2]: 0.325505
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
+    - name: peebles_color_4
+      value:
+        scalar[0]: 0.796094
+        scalar[1]: 0.7608
+        scalar[2]: 0.733303
+        scalar[3]: 0
+        texture: {instanceID: 0}
+        stringvalue: 
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 1, y: 1}
+      scale: {x: 5, y: 5}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 0
     materialProperties:
       serializedVersion: 3
-      texEnvs: []
-      floats: []
-      colors: []
+      texEnvs:
+      - _BumpMap:
+          texture: {instanceID: 0}
+          scale: {x: 5, y: 1}
+          offset: {x: 0, y: 0}
+      - _DetailAlbedoMap:
+          texture: {instanceID: 0}
+          scale: {x: 1, y: 1}
+          offset: {x: 0, y: 0}
+      - _DetailMask:
+          texture: {instanceID: 0}
+          scale: {x: 1, y: 1}
+          offset: {x: 0, y: 0}
+      - _DetailNormalMap:
+          texture: {instanceID: 0}
+          scale: {x: 1, y: 1}
+          offset: {x: 0, y: 0}
+      - _EmissionMap:
+          texture: {instanceID: 0}
+          scale: {x: 5, y: 5}
+          offset: {x: 0, y: 0}
+      - _MainTex:
+          texture: {instanceID: 0}
+          scale: {x: 5, y: 5}
+          offset: {x: 0, y: 0}
+      - _MetallicGlossMap:
+          texture: {instanceID: 0}
+          scale: {x: 5, y: 1}
+          offset: {x: 0, y: 0}
+      - _OcclusionMap:
+          texture: {instanceID: 0}
+          scale: {x: 5, y: 1}
+          offset: {x: 0, y: 0}
+      - _ParallaxMap:
+          texture: {instanceID: 0}
+          scale: {x: 5, y: 1}
+          offset: {x: 0, y: 0}
+      floats:
+      - _BumpScale: 1
+      - _Cutoff: 0.5
+      - _DetailNormalMapScale: 1
+      - _DstBlend: 0
+      - _GlossMapScale: 1
+      - _Glossiness: 0.5
+      - _GlossyReflections: 1
+      - _Metallic: 0
+      - _Mode: 0
+      - _OcclusionStrength: 1
+      - _Parallax: 0.02
+      - _SmoothnessTextureChannel: 0
+      - _SpecularHighlights: 1
+      - _SrcBlend: 1
+      - _UVSec: 0
+      - _ZWrite: 1
+      colors:
+      - _Color: {r: 1, g: 1, b: 1, a: 1}
+      - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     textureParameters:
     - name: concrete_013_basecolor
       alphaSource: 6
@@ -72,8 +262,8 @@ SubstanceImporter:
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
-      textureWidth: 512
-      textureHeight: 512
+      textureWidth: 2048
+      textureHeight: 2048
       textureFormat: 0
       loadingBehavior: 1
   deletedPrototypes: []
