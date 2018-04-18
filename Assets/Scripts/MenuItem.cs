@@ -4,25 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuItem : MonoBehaviour {
-	public string	levelName;
-	public string	levelMap;
-	public bool		forceAvailable; 
-	public bool		quit = false;
-	private bool	ready;
-	private bool	inCoroutine = false;
+	public string			levelName;
+	public string			levelMap;
+	public bool				forceAvailable; 
+	public bool				quit = false;
+	private bool			inCoroutine = false;
+	private Rotationator	rotationator;
 
 	private void Start()
 	{
-		if (forceAvailable)
-			ready = true;
-		else
-			ready = IsAvailable();
-	}
-
-	private void Update()
-	{
-		if (ready)
-			transform.Rotate(Vector3.up, Space.World);
+		rotationator = GetComponent<Rotationator>();
+		rotationator.SetRotate(forceAvailable || IsAvailable());
 	}
 
 	public bool IsAvailable()
@@ -79,5 +71,10 @@ public class MenuItem : MonoBehaviour {
 	{
 		if (!inCoroutine)
 			StartCoroutine("Highlight");
+	}
+
+	public void SetReady(bool state)
+	{
+		rotationator.SetRotate(state);
 	}
 }

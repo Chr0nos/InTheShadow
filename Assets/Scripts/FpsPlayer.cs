@@ -9,19 +9,21 @@ public class FpsPlayer : MonoBehaviour {
 	private MenuItem[]				items;
 	private MenuItem				currentItem = null;
 
-	void Start () {
-		
+	void Start ()
+	{
 		me = GetComponent<CharacterController>();
 		Cursor.lockState = CursorLockMode.Locked;
 		items = FindObjectsOfType(typeof(MenuItem)) as MenuItem[];
 	}
 	
-	void Update () {
-		MenuItem		item = RayCheck();
+	void Update ()
+	{
+		GameObject		obj = RayLaunch();
+		MenuItem		item = RayCheck(obj);
 
 		HighlightItem(item);
 		if (Input.GetKeyDown(KeyCode.E))
-			RayClick(item);
+			RayClick(item, obj);
 		if ((Input.GetKeyDown(KeyCode.Q)) && (item))
 			item.ToggleHightlight();
 		Move();
@@ -42,28 +44,42 @@ public class FpsPlayer : MonoBehaviour {
 		me.Move(motion * 0.3f);
 	}
 
-	// launch a ray from the center of the screen forward the player
-	// can return a MenuItem or null if something else / nothing was hit
-	MenuItem	RayCheck()
+	GameObject	RayLaunch()
 	{
 		RaycastHit		hit;
-		MenuItem		item;
 		Ray				ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
 		if (!Physics.Raycast(ray, out hit))
 			return (null);
 		if (hit.distance > maxDist)
 			return (null);
-		item = hit.collider.gameObject.GetComponent<MenuItem>();
-		if (item)
-			Debug.DrawLine(Camera.main.transform.position, hit.point, Color.cyan);
-		return (item);
+		Debug.DrawLine(Camera.main.transform.position, hit.point, Color.cyan);
+		return (hit.collider.gameObject);
 	}
 
-	void RayClick(MenuItem item)
+	// launch a ray from the center of the screen forward the player
+	// can return a MenuItem or null if something else / nothing was hit
+	MenuItem	RayCheck(GameObject obj)
 	{
+		if (!obj)
+			return (null);
+		return (obj.GetComponent<MenuItem>());
+	}
+
+	void RayClick(MenuItem item, GameObject obj)
+	{
+		MenuResetCfg		reset;
+
 		if (item)
 			item.OnClick();
+		else if (!obj)
+			Debug.Log("no object");
+		else
+		{
+			reset = obj.GetComponent<MenuResetCfg>();
+			if (reset)
+				reset.OnClick();
+		}
 	}
 
 	void HighlightItem(MenuItem item)
@@ -73,6 +89,8 @@ public class FpsPlayer : MonoBehaviour {
 		foreach (MenuItem citem in items)
 		{
 			color = (citem == item) ? Color.green : Color.white;
+			if (!citem.IsAvailable())
+				color = Color.black;
 			citem.GetComponent<MeshRenderer>().material.color = color;
 		}
 	}
