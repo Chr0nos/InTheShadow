@@ -63,7 +63,7 @@ public class MenuItem : MonoBehaviour {
 		for (float c = original; c < max && inCoroutine; c += delta)
 		{
 			transform.localScale = new Vector3(c, c, c);
-			yield return null;
+			yield return new WaitForSeconds(0.025f);
 		}
 		inCoroutine = false;
 	}
@@ -75,7 +75,7 @@ public class MenuItem : MonoBehaviour {
 		for (float c = transform.localScale.x; c > original && inCoroutine; c -= delta)
 		{
 			transform.localScale = new Vector3(c, c, c);
-			yield return null;
+			yield return new WaitForSeconds(0.025f);
 		}
 		inCoroutine = false;
 	}

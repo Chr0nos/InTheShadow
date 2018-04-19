@@ -16,9 +16,9 @@ public class Rotationator : MonoBehaviour {
 	{
 		while (rotate)
 		{
-			transform.Rotate(Vector3.up, space);
+			transform.Rotate(Vector3.up * Time.deltaTime * 60, space);
 			if (rotateY)
-				transform.Rotate(Vector3.right);
+				transform.Rotate(Vector3.right * Time.deltaTime * 60);
 			yield return null;
 		}
 	}

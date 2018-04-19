@@ -50,7 +50,7 @@ public class FpsPlayer : MonoBehaviour {
 		motion.Normalize();
 		motion = transform.rotation * motion;
 		motion.y = 0;
-		me.Move(motion * 0.3f);
+		me.Move(motion * Time.deltaTime * 50);
 	}
 
 	GameObject	RayLaunch()
