@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 			panel.SetActive(false);
 		ActivatePlayer(0);
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 
 	void Update ()
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Level finished.");
 		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 		ActivatePlayer(-1);
 		if (panel)
 			panel.SetActive(true);
