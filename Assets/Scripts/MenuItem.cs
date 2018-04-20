@@ -16,7 +16,6 @@ public class MenuItem : MonoBehaviour {
 	private bool			inCoroutine = false;
 	private Rotationator	rotationator;
 	private float			original;
-	private float			delta = 0.025f;
 
 	private void Start()
 	{
@@ -60,10 +59,10 @@ public class MenuItem : MonoBehaviour {
 	
 		inCoroutine = true;
 		title.gameObject.SetActive(true);
-		for (float c = original; c < max && inCoroutine; c += delta)
+		for (float c = original; c < max && inCoroutine; c += Time.deltaTime * 3)
 		{
 			transform.localScale = new Vector3(c, c, c);
-			yield return new WaitForSeconds(0.025f);
+			yield return null;
 		}
 		inCoroutine = false;
 	}
@@ -72,10 +71,10 @@ public class MenuItem : MonoBehaviour {
 	{
 		inCoroutine = true;
 		title.gameObject.SetActive(false);
-		for (float c = transform.localScale.x; c > original && inCoroutine; c -= delta)
+		for (float c = transform.localScale.x; c > original && inCoroutine; c -= Time.deltaTime * 3)
 		{
 			transform.localScale = new Vector3(c, c, c);
-			yield return new WaitForSeconds(0.025f);
+			yield return null;
 		}
 		inCoroutine = false;
 	}

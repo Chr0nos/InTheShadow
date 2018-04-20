@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 		{
 		//	Debug.Log("Game finished.");
 			Cursor.lockState = CursorLockMode.None;
+			ActivatePlayer(-1);
 			if (panel)
 				panel.SetActive(true);
 		}
