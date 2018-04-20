@@ -30,7 +30,7 @@ public class TitleShow : MonoBehaviour {
 			}
 			else
 				title.gameObject.SetActive(false);
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.1f);
 		}
 	}
 }

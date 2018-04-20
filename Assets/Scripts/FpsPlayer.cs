@@ -13,6 +13,7 @@ public class FpsPlayer : MonoBehaviour {
 	{
 		me = GetComponent<CharacterController>();
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		items = FindObjectsOfType(typeof(MenuItem)) as MenuItem[];
 	}
 	
@@ -94,6 +95,11 @@ public class FpsPlayer : MonoBehaviour {
 	void HighlightItem()
 	{
 		foreach (MenuItem citem in items)
+		{
+			if (citem.mrender == null)
+				continue ;
 			citem.mrender.material.color = (!citem.IsAvailable()) ? Color.black : Color.white;
+
+		}
 	}
 }

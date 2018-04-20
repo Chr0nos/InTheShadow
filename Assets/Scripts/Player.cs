@@ -29,7 +29,8 @@ public class Player : MonoBehaviour {
 		if ((Input.GetKey(KeyCode.LeftControl)) && (!lockTranslation))
 			Translatage();
 		else
-			Rotationage((Input.GetKey(KeyCode.LeftShift) ? Space.World : Space.Self));
+			Rotationage(
+				(Input.GetKey(KeyCode.LeftShift) ? Space.World : Space.Self));
 		if (Input.GetKeyDown(KeyCode.K))
 			transform.rotation = Quaternion.Euler(finishEuler[0]);
 		isFinished();
@@ -40,8 +41,11 @@ public class Player : MonoBehaviour {
 		if ((Input.GetKeyDown(KeyCode.P)) && (selected))
 			Debug.Log(transform.eulerAngles);
 		foreach (Vector3 euler in finishEuler)
-			Debug.DrawLine(transform.position, Quaternion.Euler(euler) * Vector3.forward * 10, Color.red);
-		Debug.DrawLine(transform.position, transform.position + transform.forward * 10, Color.green);
+			Debug.DrawLine(
+				transform.position, Quaternion.Euler(euler) *
+				Vector3.forward * 10, Color.red);
+		Debug.DrawLine(transform.position,
+			transform.position + transform.forward * 10, Color.green);
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -65,7 +69,8 @@ public class Player : MonoBehaviour {
 
 	void Translatage()
 	{
-		Vector3 motion = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
+		Vector3 motion = new Vector3(Input.GetAxis("Mouse X"),
+									 Input.GetAxis("Mouse Y"), 0);
 
 		rb.velocity += motion;
 

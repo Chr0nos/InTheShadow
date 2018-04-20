@@ -22,7 +22,8 @@ public class MenuItem : MonoBehaviour {
 		original = transform.localScale.x;
 		available = PlayerPrefs.GetInt(levelMap, 0) == 1;
 		rotationator = GetComponent<Rotationator>();
-		rotationator.SetRotate(forceAvailable || IsAvailable());
+		if (rotationator != null)
+			rotationator.SetRotate(forceAvailable || IsAvailable());
 		mrender = GetComponent<MeshRenderer>();
 	}
 
@@ -58,8 +59,11 @@ public class MenuItem : MonoBehaviour {
 		float		max = original * 1.5f;
 	
 		inCoroutine = true;
-		title.gameObject.SetActive(true);
-		for (float c = original; c < max && inCoroutine; c += Time.deltaTime * 3)
+		if (title != null)
+			title.gameObject.SetActive(true);
+		for (float c = original;
+			c < max && inCoroutine;
+			c += Time.deltaTime * 3)
 		{
 			transform.localScale = new Vector3(c, c, c);
 			yield return null;
@@ -70,8 +74,11 @@ public class MenuItem : MonoBehaviour {
 	IEnumerator UnSelected()
 	{
 		inCoroutine = true;
-		title.gameObject.SetActive(false);
-		for (float c = transform.localScale.x; c > original && inCoroutine; c -= Time.deltaTime * 3)
+		if (title != null)
+			title.gameObject.SetActive(false);
+		for (float c = transform.localScale.x;
+			c > original && inCoroutine;
+			c -= Time.deltaTime * 3)
 		{
 			transform.localScale = new Vector3(c, c, c);
 			yield return null;
@@ -90,6 +97,7 @@ public class MenuItem : MonoBehaviour {
 
 	public void SetReady(bool state)
 	{
-		rotationator.SetRotate(state);
+		if (rotationator != null)
+			rotationator.SetRotate(state);
 	}
 }

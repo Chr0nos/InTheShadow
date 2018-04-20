@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 	private void FinishLevel()
 	{
 		Debug.Log("Level finished.");
-		Cursor.lockState = CursorLockMode.None;
+		// Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		ActivatePlayer(-1);
 		if (panel)
