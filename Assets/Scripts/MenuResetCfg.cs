@@ -15,7 +15,7 @@ public class MenuResetCfg : MonoBehaviour {
 		Debug.Log("reseting configuration");
 		foreach (MenuItem lvl in levels)
 		{
-			PlayerPrefs.SetInt(lvl.levelMap, forcedValue);
+			PlayerPrefs.SetInt(lvl.levelName, forcedValue);
 			if (!lvl.forceAvailable)
 			{
 				lvl.SetReady(forcedValue == 1);

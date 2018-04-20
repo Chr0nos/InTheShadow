@@ -36,7 +36,7 @@ public class MenuItem : MonoBehaviour {
 
 	public void SetAvailable(bool state)
 	{
-		PlayerPrefs.SetInt(levelMap, (state == true) ? 1 : 0);
+		PlayerPrefs.SetInt(levelName, (state == true) ? 1 : 0);
 		available = state;
 		PlayerPrefs.Save();
 	}

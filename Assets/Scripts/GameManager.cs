@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour 
 {
-	private Player[]	players;
 	public string		nextLevelName;
 	public GameObject	panel = null;
+	public AudioClip	finishSound;
+
+	private Player[]	players;
+	private bool		finished = false;
 
 	private void Start()
 	{
@@ -47,15 +50,28 @@ public class GameManager : MonoBehaviour
 			SceneManager.LoadScene("LiveMenu");
 	}
 
+	private void PlayFinishSound()
+	{
+		AudioSource		sound;
+
+		if (!finishSound)
+			return ;
+		sound = Camera.main.GetComponent<AudioSource>();
+		sound.clip = finishSound;
+		sound.Play();
+	}
+
 	private void FinishLevel()
 	{
+		if (finished)
+			return ;
+		PlayFinishSound();
 		Debug.Log("Level finished.");
-		// Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
 		ActivatePlayer(-1);
 		if (panel)
 			panel.SetActive(true);
 		SetLockMode(false);
+		finished = true;
 	}
 
 	void ActivatePlayer(int id)

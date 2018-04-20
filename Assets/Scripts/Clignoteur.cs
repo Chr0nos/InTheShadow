@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Clignoteur : MonoBehaviour {
-	public float		interval;
 	public float		coef;
 	private Light		lamp;
-	private float		lampIntensity;
-	private float		pos;
 
 	void Start() {
-		pos = 0;
 		lamp = GetComponent<Light>();
-		lampIntensity = lamp.intensity;
+		StartCoroutine("SinonusoLight");
 	}
 
-	void Update ()
+	IEnumerator SinonusoLight()
 	{
-		SinonusoLight();
-	}
+		float		pos;
 
-	void SinonusoLight()
-	{
-		float		si;
-
-		pos += coef;
-		si = Mathf.Sin(pos);
-		lamp.intensity = si * lampIntensity;
+		pos = 0;
+		while (true)
+		{
+			pos += coef;
+			lamp.intensity = Mathf.Sin(pos * Time.deltaTime * 60) * 0.5f + 0.5f;
+			if (pos > 6.28f)
+				pos -= 6.28f;
+			yield return null;
+		}
 	}
 }

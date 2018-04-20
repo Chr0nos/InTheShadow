@@ -33,7 +33,7 @@ SubstanceImporter:
         stringvalue: 
     - name: luminosity
       value:
-        scalar[0]: 0.5
+        scalar[0]: 0.402
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -57,7 +57,7 @@ SubstanceImporter:
         stringvalue: 
     - name: saturation
       value:
-        scalar[0]: 0.5
+        scalar[0]: 0.313
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -89,7 +89,7 @@ SubstanceImporter:
         stringvalue: 
     - name: height_range
       value:
-        scalar[0]: 0.35
+        scalar[0]: 0.693
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -113,7 +113,7 @@ SubstanceImporter:
         stringvalue: 
     - name: frame_size
       value:
-        scalar[0]: 0.1
+        scalar[0]: 0.042
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -146,7 +146,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 1, y: 1}
+      scale: {x: 6.31, y: 2.22}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 0
@@ -155,7 +155,7 @@ SubstanceImporter:
       texEnvs:
       - _BumpMap:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 6.31, y: 2.22}
           offset: {x: 0, y: 0}
       - _DetailAlbedoMap:
           texture: {instanceID: 0}
@@ -171,23 +171,23 @@ SubstanceImporter:
           offset: {x: 0, y: 0}
       - _EmissionMap:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 6.31, y: 2.22}
           offset: {x: 0, y: 0}
       - _MainTex:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 6.31, y: 2.22}
           offset: {x: 0, y: 0}
       - _MetallicGlossMap:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 6.31, y: 2.22}
           offset: {x: 0, y: 0}
       - _OcclusionMap:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 6.31, y: 2.22}
           offset: {x: 0, y: 0}
       - _ParallaxMap:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 6.31, y: 2.22}
           offset: {x: 0, y: 0}
       floats:
       - _BumpScale: 1
