@@ -22,19 +22,22 @@ public class GameManager : MonoBehaviour
 	void Update ()
 	{
 		if (isGameFinished())
-		{
-		//	Debug.Log("Game finished.");
-			Cursor.lockState = CursorLockMode.None;
-			ActivatePlayer(-1);
-			if (panel)
-				panel.SetActive(true);
-		}
+			FinishLevel();
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 			ActivatePlayer(0);
 		else if (Input.GetKeyDown(KeyCode.Alpha2))
 			ActivatePlayer(1);
 		else if (Input.GetKeyDown(KeyCode.Alpha3))
 			ActivatePlayer(-1);
+	}
+
+	private void FinishLevel()
+	{
+		Debug.Log("Level finished.");
+		Cursor.lockState = CursorLockMode.None;
+		ActivatePlayer(-1);
+		if (panel)
+			panel.SetActive(true);
 	}
 
 	void ActivatePlayer(int id)
