@@ -33,7 +33,7 @@ SubstanceImporter:
         stringvalue: 
     - name: luminosity
       value:
-        scalar[0]: 0.5
+        scalar[0]: 0.322
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -41,7 +41,7 @@ SubstanceImporter:
         stringvalue: 
     - name: contrast
       value:
-        scalar[0]: 0
+        scalar[0]: 0.507
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -57,7 +57,7 @@ SubstanceImporter:
         stringvalue: 
     - name: saturation
       value:
-        scalar[0]: 0.5
+        scalar[0]: 0.202
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0

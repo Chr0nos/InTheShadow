@@ -16,8 +16,21 @@ public class GameManager : MonoBehaviour
 		if (panel)
 			panel.SetActive(false);
 		ActivatePlayer(0);
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
+		SetLockMode(true);
+	}
+
+	void SetLockMode(bool state)
+	{
+		if (state)
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+		else
+		{
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
 	}
 
 	void Update ()
@@ -30,6 +43,8 @@ public class GameManager : MonoBehaviour
 			ActivatePlayer(1);
 		else if (Input.GetKeyDown(KeyCode.Alpha3))
 			ActivatePlayer(-1);
+		if (Input.GetKeyDown(KeyCode.Escape))
+			SceneManager.LoadScene("LiveMenu");
 	}
 
 	private void FinishLevel()
@@ -40,6 +55,7 @@ public class GameManager : MonoBehaviour
 		ActivatePlayer(-1);
 		if (panel)
 			panel.SetActive(true);
+		SetLockMode(false);
 	}
 
 	void ActivatePlayer(int id)

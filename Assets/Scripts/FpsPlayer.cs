@@ -24,6 +24,8 @@ public class FpsPlayer : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.M))
 			SceneManager.LoadScene("Menu");
+		if (Input.GetKeyDown(KeyCode.Escape))
+			SetLockMode(false);
 		HighlightItem();
 		if (Input.GetKeyDown(KeyCode.E))
 			RayClick(item, obj);
@@ -32,6 +34,20 @@ public class FpsPlayer : MonoBehaviour {
 		transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Mouse X"));
 		ToggleSelectedItem(item);
 		currentItem = item;
+	}
+
+	void SetLockMode(bool state)
+	{
+		if (state)
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+		else
+		{
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
 	}
 
 	void ToggleSelectedItem(MenuItem item)
